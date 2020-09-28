@@ -1,0 +1,35 @@
+footer {
+    background-color: khaki;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px;
+    margin:-10px;
+}
+
+.dados {
+    margin: -30px 200px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dados h1 {
+    color: rgb(82, 80, 80);
+    font-size: 20px;
+}
+
+.perfil {
+    border-radius: 100px;
+    width: 160px;
+}
+
+.social {
+    display: flex;
+}
+
+.social img {
+    width: 60px;
+    margin: 0 20px;
+    position: relative;
+    left: -20px;
+}

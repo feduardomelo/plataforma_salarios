@@ -1,0 +1,9 @@
+
+.content {
+    display: grid;
+    margin-bottom: 30px;
+}
+
+.content label, select, input, button {
+    margin: 5px 0;
+}

@@ -1,0 +1,47 @@
+header {
+    background-color: khaki;
+    align-items: center;
+    justify-content: center;
+    margin: -50px -10px 60px -10px;
+    padding: 50px;
+}
+
+header label {
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+
+
+
+.empresas {
+    margin: 0 30px;
+    background-color: rgba(98, 119, 139, 0.25);
+    text-align: center;
+    padding: 20px 120px;
+    font-size: 14px;
+}
+
+.empresas h1 {
+    font-size: 20px;
+    color: rgba(98, 119, 139, 0.95);
+}
+
+.empresas span {
+    color: black
+}
+
+.empresas ul {
+    position: relative;
+    left: -10px;
+    text-align: left;
+}
+
+.empresas p {
+    position: relative;
+    left: -90px;
+    text-align: left;
+}
