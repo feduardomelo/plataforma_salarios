@@ -3,7 +3,7 @@ import './style.css'
 
 const Footer = () => {
     return(
-        
+    
     <footer id="footer">
         <div className="dados">
             <img src={require("../img/eduardo.jpeg")}  className="perfil" alt=""/>

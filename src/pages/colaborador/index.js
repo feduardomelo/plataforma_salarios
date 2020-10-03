@@ -21,9 +21,9 @@ const Colaborador = () => {
             <option value="0">OUTRA</option>
         </select>
         
-        <input placeholder="Salário" type="text"/>
+        <label>Salário</label>
+        <input placeholder="Valor em R$" type="number"/>
         
-
         <button type="submit">Submeter</button>
     
     </div>
