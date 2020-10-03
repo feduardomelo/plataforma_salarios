@@ -1,10 +1,13 @@
 footer {
     background-color: khaki;
-    display: flex;
     align-items: center;
     justify-content: center;
     padding: 70px;
     margin:-10px;
+}
+
+#footer {
+    display: flex;
 }
 
 .dados {
