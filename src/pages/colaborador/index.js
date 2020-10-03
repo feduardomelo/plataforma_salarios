@@ -4,7 +4,7 @@ import './style.css'
 const Colaborador = () => {
     return(
     <div className="content">
-
+        <title>Colaborador</title>
         <label>Nome da empresa</label>
         <select name="name_empresa" id="name_empresa">
             <option value="1">Option 1</option>

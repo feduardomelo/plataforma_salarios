@@ -4,6 +4,7 @@ import './style.css'
 const Empresas = () => {
     return(
         <div>
+            <title>Empresas</title>
             <header>
                 <label >O que você procura?</label>
                 <select name="opcoes" id="filtro">
