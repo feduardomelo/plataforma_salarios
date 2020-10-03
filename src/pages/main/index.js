@@ -9,8 +9,8 @@ const Main = () => {
         
         <div className="text">
             <title>Plataforma</title>
-            <h1>Lorem ipsum dolor sit amet, consectetur</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam voluptatibus magnam quos similique corrupti nobis iure iusto. Ea molestiae similique assumenda aut quae impedit, accusamus fuga consequatur illo maiores odio!</p>
+            <h1>Quanto Você Ganha?</h1>
+            <p>Um banco de cargos e salários do mercado de tecnologia na cidade do Recife. Aqui você pode consultar os benefícios e requisitos da empresa desejada.</p>
         </div>
 
         <div className="image">
