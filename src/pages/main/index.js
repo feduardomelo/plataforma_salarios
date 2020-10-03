@@ -10,7 +10,7 @@ const Main = () => {
         <div className="text">
             <title>Plataforma</title>
             <h1>Quanto Você Ganha?</h1>
-            <p>Um banco de cargos e salários do mercado de tecnologia na cidade do Recife. Aqui você pode consultar os benefícios e requisitos da empresa desejada.</p>
+            <p>Uma base de dados dos cargos e salários do mercado de tecnologia na cidade do Recife. Aqui você pode consultar os benefícios e requisitos da empresa desejada.</p>
         </div>
 
         <div className="image">
