@@ -39,6 +39,10 @@ footer {
 
 @media(max-width:576px) {
 
+    footer {
+        padding: 30px;
+        margin: 0;
+    }
 
     #footer {
         display: grid;
