@@ -1,7 +1,9 @@
 import React from 'react'
 import './style.css'
+import { useHistory } from "react-router-dom"
 
 const Empresas = () => {
+    const history = useHistory()
     return(
         <div>
             <title>Empresas</title>
@@ -23,6 +25,8 @@ const Empresas = () => {
                     <p>Valor do salário:</p>
                     <p>Total de análises:</p>
                     <p>Ambiente de trabalho:</p>
+                    <button className="btn" className="btn" onClick={() => history.push("/empresa/:id")}> acessar </button>
+
                 </div>
 
                 <div className="empresas">
@@ -32,6 +36,8 @@ const Empresas = () => {
                     <p>Valor do salário:</p>
                     <p>Total de análises:</p>
                     <p>Ambiente de trabalho:</p>
+                    <button className="btn" className="btn" onClick={() => history.push("/empresa/:id")}> acessar </button>
+
                 </div>
 
                 <div className="empresas">
@@ -41,6 +47,8 @@ const Empresas = () => {
                     <p>Valor do salário:</p>
                     <p>Total de análises:</p>
                     <p>Ambiente de trabalho:</p>
+                    <button className="btn" onClick={() => history.push("/empresa/:id")}> acessar </button>
+
                 </div>
                 
             </div>

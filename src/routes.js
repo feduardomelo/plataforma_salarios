@@ -4,6 +4,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import Main from './pages/main'
 import Empresas from './pages/empresas'
+import EmpresaId from './pages/empresaId'
 import Colaborador from './pages/colaborador'
 
 const Routes = () => (
@@ -11,6 +12,7 @@ const Routes = () => (
         <Switch>
             <Route exact path ='/' component = {Main}/>
             <Route path='/empresas' component = {Empresas}/>
+            <Route path='/empresa/:id' component = {EmpresaId}/> 
             <Route path='/colaborador' component = {Colaborador}/>
         </Switch>
     
