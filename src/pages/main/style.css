@@ -7,7 +7,7 @@
 .container .text {
     margin: 120px;
     font-size: 16px;
-    max-width: 350px;
+    
     
 }
 
@@ -19,4 +19,19 @@
 .container .text p {
     color: gray;
     line-height: 30px;
+}
+
+@media(max-width:576px) {
+    .container{
+        display: grid;
+        padding: 0;
+    }
+    
+    .container .text {
+        margin: 60px;
+    }
+
+    .image {
+        width: 100%;
+    }
 }

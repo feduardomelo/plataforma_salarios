@@ -2,6 +2,7 @@ nav {
     border-color: rgb(98, 119, 139);
     border-style: outset;
     border-top: none;
+    border-right: none;
     margin-top: -10px;
     margin-left: -10px;
     margin-right: -10px;
@@ -33,4 +34,23 @@ nav {
 .logo {
     width: 40px;
     margin: 0px 30px;
+}
+
+@media(max-width: 500px) {
+    nav {
+        display: flexbox;
+    
+    }
+
+    .btn{
+        margin: 0;
+    }
+    #colaborador {
+        left: 0;
+    }
+
+
+    #menu {
+        display: none;
+    }
 }

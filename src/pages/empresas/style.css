@@ -17,6 +17,7 @@ header label {
 
 .empresas {
     margin: 0 30px;
+    margin-bottom: 10px;
     background-color: rgba(98, 119, 139, 0.25);
     
     padding: 20px 100px;
