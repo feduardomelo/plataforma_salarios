@@ -58,7 +58,7 @@ const EmpresaId = () => {
         </tbody>
     </table>
     </div>
-    <button className="btn"  onClick={() => history.push("/")}>Voltar </button>
+    <button className="btn especial"  onClick={() => history.push("/")}>Voltar </button>
         </>
 )
 }
