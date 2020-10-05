@@ -2,36 +2,12 @@ import React from 'react'
 import "./style.css"
 import { useHistory } from "react-router-dom"
 
-// this.state = {avaliacao :[{
-//     cargo:"estagiario",
-//     salario:1000,
-//     ambiente_trabalho:4,
-// },{
-//     cargo:"estagiario",
-//     salario:1000,
-//     ambiente_trabalho:4,
-// },{
-//     cargo:"estagiario",
-//     salario:1000,
-//     ambiente_trabalho:4,
-// },{
-//     cargo:"estagiario",
-//     salario:1000,
-//     ambiente_trabalho:4,
-// },{
-//     cargo:"estagiario",
-//     salario:1000,
-//     ambiente_trabalho:4,
-// },{
-//     cargo:"estagiario",
-//     salario:1000,
-//     ambiente_trabalho:4,
-// },{
-//     cargo:"estagiario",
-//     salario:1000,
-//     ambiente_trabalho:4,
-// }] }
+import api from '../../services/api'
+import EmpresaService from '../../services/empresa'
+
 const EmpresaId = () => {
+    
+
     const history = useHistory()
 
     return(
