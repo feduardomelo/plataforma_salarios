@@ -1,59 +1,59 @@
-import React from 'react'
+import React, {Component} from 'react'
 import './style.css'
 import { useHistory } from "react-router-dom"
 
-const Empresas = () => {
-    const history = useHistory()
+import api from '../../services/api'
+
+class Empresas extends Component {
+    state = {
+        empresas: []
+    }
+
+    async componentDidMount() {
+        const response = await api.get('/empresa')
+        console.log(response)
+        this.setState({ empresas: response.data })
+    }
+    
+    render() {
+        const {empresas} = this.state
+        //const history = useHistory()
+
+        
+
     return(
         <div>
             <title>Empresas</title>
             <header>
                 <label >Qual empresa você procura?</label>
                 <select className="form-control form-control-lg" name="opcoes" id="filtro">
-                    <option value="0">Filtro</option>
-                    <option value="Ambiente de Trabalho">Ambiente de Trabalho</option>
-                    <option value="Salário">Salário</option>
-                    <option value="Nome">Nome</option>
+                    {empresas.map(empresa => (
+                        <option >{empresa.nome_empresa}</option>
+                    ))}
                 </select>
             </header>
 
+                <h2>Algumas avaliações</h2>
             <div className="container" id="blocos">
-                <div className="empresas">
-                    <h1>Empresa 1</h1>
-                    
-                    <p>Cargo:</p>
-                    <p>Valor do salário:</p>
-                    <p>Total de análises:</p>
-                    <p>Ambiente de trabalho:</p>
-                    <button className="btn" className="btn" onClick={() => history.push("/empresa/:id")}> acessar </button>
-
-                </div>
-
-                <div className="empresas">
-                    <h1>Empresa 1</h1>
-                    
-                    <p>Cargo:</p>
-                    <p>Valor do salário:</p>
-                    <p>Total de análises:</p>
-                    <p>Ambiente de trabalho:</p>
-                    <button className="btn" className="btn" onClick={() => history.push("/empresa/:id")}> acessar </button>
-
-                </div>
-
-                <div className="empresas">
-                    <h1>Empresa 1</h1>
-                    
-                    <p>Cargo:</p>
-                    <p>Valor do salário:</p>
-                    <p>Total de análises:</p>
-                    <p>Ambiente de trabalho:</p>
-                    <button className="btn" onClick={() => history.push("/empresa/:id")}> acessar </button>
-
-                </div>
+                {empresas.map(empresa => (
+                    empresa.avaliacao.map(avaliacao => (
+                        <div className="empresas">
+                            <h3>{empresa.nome_empresa}</h3>
+                            
+                            <p>Cargo: {avaliacao.cargo}</p>
+                            <p>Valor do salário: {avaliacao.salario}</p>
+                            <p>Total de análises: {empresa.avaliacao.length} </p>
+                            <p>Ambiente de trabalho:{avaliacao.ambiente_trabalho}</p>
+                            <a className="btn" href={`/empresa/:id`}>Acessar</a>
+                        </div>
+                    ))
+                ))}
+                
                 
             </div>
         </div>
-)
+)}
+
 }
 
 export default Empresas
