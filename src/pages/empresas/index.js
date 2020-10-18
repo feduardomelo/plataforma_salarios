@@ -1,34 +1,31 @@
-import React, {Component} from 'react'
+import React, {useState} from 'react'
 import './style.css'
 import { useHistory } from "react-router-dom"
 
 import api from '../../services/api'
 
-class Empresas extends Component {
-    state = {
-        empresas: []
-    }
-
-    async componentDidMount() {
-        const response = await api.get('/empresa')
-        console.log(response)
-        this.setState({ empresas: response.data })
-    }
+export default function Empresas(){
+    const history = useHistory()
     
-    render() {
-        const {empresas} = this.state
-        //const history = useHistory()
+    const [empresas, setEmpresas] = useState([])
+    
 
-        
+    api.get('/empresa').then(response => {
+        setEmpresas(response.data)
+    })
+
 
     return(
         <div>
             <title>Empresas</title>
             <header>
                 <label >Qual empresa você procura?</label>
-                <select className="form-control form-control-lg" name="opcoes" id="filtro">
+                <select onChange={(event) => {
+                    history.push(`empresa/:${event.target.value}`)
+                }} className="form-control form-control-lg" name="opcoes" id="filtro">
+                    <option>Selecione a empresa</option>
                     {empresas.map(empresa => (
-                        <option >{empresa.nome_empresa}</option>
+                        <option value={empresa.id} >{empresa.nome_empresa}</option>
                     ))}
                 </select>
             </header>
@@ -48,12 +45,10 @@ class Empresas extends Component {
                         </div>
                     ))
                 ))}
-                
-                
+
             </div>
         </div>
 )}
 
-}
 
-export default Empresas
+
