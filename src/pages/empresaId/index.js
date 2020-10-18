@@ -3,14 +3,14 @@ import "./style.css"
 import { useHistory } from "react-router-dom"
 import EmpresaService from '../../services/empresa'
 
-
 class EmpresaId extends Component {
     state = {
         empresa:  []
     }
     async componentDidMount(){
-        const  empresaId  = await EmpresaService.getEmpresaById(2)
-        console.log(empresaId.data)
+        const id =this.props.match.params.id
+
+        const  empresaId  = await EmpresaService.getEmpresaById(id)
         this.setState({empresa:empresaId.data[0]})
 
     }
