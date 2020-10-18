@@ -1,59 +1,52 @@
 
+import React, {useState} from 'react'
 import './style.css'
 import { useHistory } from "react-router-dom"
-import EmpresaService from '../../services/empresa'
-import React, {Component} from 'react'
 
-class Empresas extends Component{
-    state = {
-        empresa : []
-    }
-    async componentDidMount() {
-        const response =await EmpresaService.getEmpresa()
-        this.setState( { empresa: response.data})
-        console.log(response.data)
-    }
-    render(){
-        const { empresa} = this.state
-        // const history = useHistory()
-        empresa.map(b=>{
-            b.avaliacao.forEach(av=>console.log(av))
-        })
-        return(
-            <div>
-                <title>Empresas</title>
-                <header>
-                    <label >Qual empresa você procura?</label>
-                    <select className="form-control form-control-lg" name="opcoes" id="filtro">
-                        <option value="0">Filtro</option>
-                        <option value="Ambiente de Trabalho">Ambiente de Trabalho</option>
-                        <option value="Salário">Salário</option>
-                        <option value="Nome">Nome</option>
-                    </select>
-                </header>
+import api from '../../services/api'
+
+export default function Empresas(){
+    const history = useHistory()
     
-                <div className="container" id="blocos">
-               
+    const [empresas, setEmpresas] = useState([])
+    
+    api.get('/empresa').then(response => {
+        setEmpresas(response.data)
+    })
 
-                { empresa.map(empresas =>(
-
-                    <div className="empresas col-4">
-        <h1>{empresas.nome_empresa}</h1>                    
-
-        <p>Cargo:</p>
-        <p>Valor do salário:</p>
-        <p>Total de análises:</p>
-        <p>Ambiente de trabalho:</p>
-        <p>Situação da empresa: {empresas.situação_empresa}</p>
-        <button className="btn" className="btn" > acessar </button>
-
-                        
-                    </div>
+    return(
+        <div>
+            <title>Empresas</title>
+            <header>
+                <label >Qual empresa você procura?</label>
+                <select onChange={(event) => {
+                    
+                    history.push(`empresa/:${event.target.value}`)
+                }} className="form-control form-control-lg" name="opcoes" id="filtro">
+                    <option>Selecione a empresa</option>
+                    {empresas.map(empresa => (
+                        <option value={empresa.id} >{empresa.nome_empresa}</option>
                     ))}
-                </div>
-            </div>
-    )
-    }
-}
+                </select>
+            </header>
 
-export default Empresas
+                <h2>Algumas avaliações</h2>
+            <div className="container" id="blocos">
+                {empresas.map(empresa => (
+                    empresa.avaliacao.map(avaliacao => (
+                        <div className="empresas">
+                            <h3>{empresa.nome_empresa}</h3>
+                            
+                            <p>Cargo: {avaliacao.cargo}</p>
+                            <p>Valor do salário: {avaliacao.salario}</p>
+                            <p>Total de análises: {empresa.avaliacao.length} </p>
+                            <p>Ambiente de trabalho:{avaliacao.ambiente_trabalho}</p>
+                            <a className="btn" href={`/empresa/:${empresa.id}`}>Acessar empresa</a>
+                        </div>
+                    ))
+                ))}
+            </div>
+        </div>
+)}
+
+

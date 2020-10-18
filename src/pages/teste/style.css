@@ -1,0 +1,26 @@
+
+.content {
+    display: grid;
+    margin-bottom: 30px;
+}
+
+.content label, select, input, button {
+    margin: 10px 0;
+}
+
+#salario {
+    margin: 0 100px;
+}
+
+.input-group-text input, label {
+    margin:0 20px;
+    
+}
+
+.input-group-prepend {
+    margin: auto;
+}
+
+.btn {
+    margin-top: 10px;
+}
