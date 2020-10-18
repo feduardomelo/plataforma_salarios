@@ -9,10 +9,10 @@ export default function Empresas(){
     
     const [empresas, setEmpresas] = useState([])
     
-
     api.get('/empresa').then(response => {
         setEmpresas(response.data)
     })
+
 
 
     return(
@@ -21,6 +21,7 @@ export default function Empresas(){
             <header>
                 <label >Qual empresa você procura?</label>
                 <select onChange={(event) => {
+                    
                     history.push(`empresa/:${event.target.value}`)
                 }} className="form-control form-control-lg" name="opcoes" id="filtro">
                     <option>Selecione a empresa</option>
@@ -41,7 +42,7 @@ export default function Empresas(){
                             <p>Valor do salário: {avaliacao.salario}</p>
                             <p>Total de análises: {empresa.avaliacao.length} </p>
                             <p>Ambiente de trabalho:{avaliacao.ambiente_trabalho}</p>
-                            <a className="btn" href={`/empresa/:id`}>Acessar</a>
+                            <a className="btn" href={`/empresa/:${empresa.id}`}>Acessar empresa</a>
                         </div>
                     ))
                 ))}
