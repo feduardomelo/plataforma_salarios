@@ -23,18 +23,7 @@ class Colaborador extends Component{
         
     }
 
-    handleSubmit(event) {
-        event.preventDefault()
-
-        const data = {}
-
-        data.append('empresa_id', empresa_id)
-        data.append('cargo', cargo)
-        data.append('salario', salario)
-        data.append('ambiente_trabalho', ambiente_trabalho )
-
-
-    }
+    
 
     render() {
         
@@ -48,7 +37,7 @@ class Colaborador extends Component{
     return(
     <div className="content container">
         <title>Colaborador</title>
-        <form onSubmit={handleSubmit}>
+        <form >
             <label>Nome da empresa</label>
             <select className="form-control form-control-lg" name="name_empresa" id="name_empresa">
                 {empresas.map(empresa => (
