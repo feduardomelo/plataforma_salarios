@@ -13,8 +13,6 @@ export default function Empresas(){
         setEmpresas(response.data)
     })
 
-
-
     return(
         <div>
             <title>Empresas</title>
@@ -46,7 +44,6 @@ export default function Empresas(){
                         </div>
                     ))
                 ))}
-
             </div>
         </div>
 )}
