@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom'
 
-import api from '../../services/api'
+import EmpresaService from "../../services/empresa"
 
 import './style.css'
 
@@ -26,7 +26,7 @@ export default function Colaborador() {
         data.append('salario', salario)
         data.append('ambiente_trabalho', ambiente_trabalho)
 
-        await api.post('/avaliacao', data).then(() => console.log('POST FUNCIONOU'))
+        await EmpresaService.postEmpresa( data).then(() => console.log('POST FUNCIONOU'))
 
         alert("Cadastro realizado com sucesso")
 
@@ -37,7 +37,7 @@ export default function Colaborador() {
     
 
     useEffect(() => {
-        api.get('/empresa').then(response => {
+        EmpresaService.getEmpresa().then(response => {
             setEmpresas(response.data)
         })
     })
@@ -102,7 +102,7 @@ export default function Colaborador() {
                             </div>
                         </div>
                     </div>
-                    <button className="btn" type="submit">Submeter</button>
+                    <button className=" btn bg-light text-dark" type="submit">Submeter</button>
                 </form>
             </div>
             )

@@ -2,7 +2,7 @@
 import React, {useState} from 'react'
 import './style.css'
 import { useHistory } from "react-router-dom"
-
+import EmpresaService from "../../services/empresa"
 import api from '../../services/api'
 
 export default function Empresas(){
@@ -10,15 +10,19 @@ export default function Empresas(){
     
     const [empresas, setEmpresas] = useState([])
     
-    api.get('/empresa').then(response => {
+    EmpresaService.getEmpresa().then(response => {
         setEmpresas(response.data)
     })
 
     return(
-        <div>
+        <div >
             <title>Empresas</title>
-            <header>
-                <label >Qual empresa você procura?</label>
+            <header className="container">
+                <div className="col">
+                <label ><h3>Qual empresa você procura? </h3></label>
+                </div>
+                <div className="col">
+
                 <select onChange={(event) => {
                     
                     history.push(`empresa/:${event.target.value}`)
@@ -28,23 +32,30 @@ export default function Empresas(){
                         <option value={empresa.id} >{empresa.nome_empresa}</option>
                     ))}
                 </select>
+                </div>
             </header>
 
                 <h2>Algumas avaliações</h2>
-            <div className="container" id="blocos">
+                <div className="row ">
+                
                 {empresas.map(empresa => (
                     empresa.avaliacao.map(avaliacao => (
-                        <div className="empresas">
+                        <div className=" col-4 padding " id="blocos">
+
+        <div className="card card-body color ">
                             <h3>{empresa.nome_empresa}</h3>
                             
                             <p>Cargo: {avaliacao.cargo}</p>
                             <p>Valor do salário: {avaliacao.salario}</p>
                             <p>Total de análises: {empresa.avaliacao.length} </p>
                             <p>Ambiente de trabalho:{avaliacao.ambiente_trabalho}</p>
-                            <a className="btn" href={`/empresa/:${empresa.id}`}>Acessar empresa</a>
+                            <a className="btn bg-light text-dark"  href={`/empresa/${empresa.id}`}>Acessar empresa</a>
                         </div>
+                </div>
+
                     ))
                 ))}
+            
             </div>
         </div>
 )}

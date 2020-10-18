@@ -1,43 +1,9 @@
-header {
-    background-color: khaki;
-    align-items: center;
-    justify-content: center;
-    margin: -50px 0px 60px -10px;
-    padding: 50px;
-}
-
-header label {
-    text-align: center;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    font-size: 24px;
-    margin-bottom: 15px;
-}
-
-.empresas {
-    margin: 0 30px;
-    margin-bottom: 10px;
-    background-color: rgba(98, 119, 139, 0.25);
-    
-    padding: 20px 100px;
-    font-size: 14px;
-}
-
-.empresas h1 {
+.color{
+    background-color: rgba(128, 128, 128, 0.801);
     font-size: 20px;
-    color: rgba(98, 119, 139, 0.95);
-    margin-bottom: 30px;
+    color: white;
+    
 }
-
-.empresas span {
-    color: black
+.padding{
+    padding: 15px;
 }
-
-
-.empresas p {
-    position: relative;
-    left: -80px;
-    text-align: left;
-}
-
