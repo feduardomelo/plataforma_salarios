@@ -4,6 +4,7 @@ import './style.css'
 
 const Colaborador = () => {
     return(
+        
     <div className="content container">
         <title>Colaborador</title>
         <form>

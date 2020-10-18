@@ -1,23 +1,33 @@
-import React from 'react'
+import React, { Component } from 'react'
 import "./style.css"
 import { useHistory } from "react-router-dom"
-
-import api from '../../services/api'
 import EmpresaService from '../../services/empresa'
 
-const EmpresaId = () => {
-    
 
-    const history = useHistory()
+class EmpresaId extends Component {
+    state = {
+        empresa:  []
+    }
+    async componentDidMount(){
+        const  empresaId  = await EmpresaService.getEmpresaById(2)
+        console.log(empresaId.data)
+        this.setState({empresa:empresaId.data[0]})
+
+    }
+
+    render(){
+        const { empresa } = this.state
+       const avaliacao = empresa.avaliacao || []
 
     return(
+
     <>
+
         <h1 className="pad-h1"> Nome da empresa</h1>
         <div className="container">
     <table className=" table table-striped tam-table">
     <thead >
         <tr className="">
-        <th scope="col">#</th>
         <th scope="col">Cargo</th>
         <th scope="col">Salário</th>
         <th scope="col">Ambiente de trabalho</th>
@@ -25,18 +35,19 @@ const EmpresaId = () => {
         </tr>
     </thead>
     <tbody >
+    {avaliacao.map((av) => {
+        return(
         <tr >
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        </tr>
+        <td>{av.cargo}</td>
+        <td>{av.salario}</td>
+        <td>{av.ambiente_trabalho}</td>
+        </tr>)})}
         </tbody>
     </table>
     </div>
-    <button className="btn especial"  onClick={() => history.push("/")}>Voltar </button>
-        </>
-)
+    <button className="btn especial"  >Voltar </button>
+    </>
+)}
 }
 
 export default EmpresaId
