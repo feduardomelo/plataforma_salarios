@@ -39,7 +39,7 @@ class EmpresaId extends Component {
             return(
             <tr >
             <td>{av.cargo}</td>
-            <td>{av.salario}</td>
+            <td>R$ {av.salario},00</td>
             <td>{av.ambiente_trabalho}</td>
             </tr>)})}
     </tbody>
