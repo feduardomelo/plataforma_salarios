@@ -39,21 +39,21 @@ export default function Empresas(){
                 <div className="row ">
                 
                 {empresas.map(empresa => (
-                    empresa.avaliacao.map(avaliacao => (
+                    
                         <div className=" col-4 padding " id="blocos">
 
         <div className="card card-body color ">
                             <h3>{empresa.nome_empresa}</h3>
                             
-                            <p>Cargo: {avaliacao.cargo}</p>
-                            <p>Valor do salário: {avaliacao.salario}</p>
+                            <p>Cargo: {empresa.avaliacao[0].cargo}</p>
+                            <p>Valor do salário: {empresa.avaliacao[0].salario}</p>
                             <p>Total de análises: {empresa.avaliacao.length} </p>
-                            <p>Ambiente de trabalho:{avaliacao.ambiente_trabalho}</p>
+                            <p>Ambiente de trabalho:{empresa.avaliacao[0].ambiente_trabalho}</p>
                             <a className="btn bg-light text-dark"  href={`/empresa/${empresa.id}`}>Acessar empresa</a>
                         </div>
                 </div>
 
-                    ))
+                    
                 ))}
             
             </div>
