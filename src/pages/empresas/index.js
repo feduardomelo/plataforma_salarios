@@ -37,45 +37,24 @@ export default function Empresas(){
 
                 <h2>Empresas</h2>
                 <div className="row ">
-                    <div className=" col-4 padding " id="blocos">
-
-                        <div className="card card-body color ">
-                            <h3>VTEX</h3>
-                            
-                            <p>Cargo: Cientista dos Dados</p>
-                            <p>Valor do salário: R$8000,00</p>
-                            <p>Total de análises: 3 </p>
-                            <p>Ambiente de trabalho:4</p>
-                            <a className="btn bg-light text-dark"  href={`/empresa/25`}>Acessar empresa</a>
-                    </div>
-                </div>
-                <div className=" col-4 padding " id="blocos">
-
-                        <div className="card card-body color ">
-                            <h3>Cesar</h3>
-                            
-                            <p>Cargo: Desenvolvedor WEB júnior</p>
-                            <p>Valor do salário: R$3000,00</p>
-                            <p>Total de análises: 8 </p>
-                            <p>Ambiente de trabalho:5</p>
-                            <a className="btn bg-light text-dark"  href={`/empresa/2`}>Acessar empresa</a>
-                    </div>
-                </div>
-                <div className=" col-4 padding " id="blocos">
-
-                        <div className="card card-body color ">
-                            <h3>Focus</h3>
-                            
-                            <p>Cargo: Analista de Redes</p>
-
-                            <p>Valor do salário: R$4000,00</p>
-                            <p>Total de análises: 8 </p>
-                            <p>Ambiente de trabalho:5</p>
-                            <a className="btn bg-light text-dark"  href={`/empresa/6`}>Acessar empresa</a>
-                    </div>
-                </div>
                 
-                
+                {empresas.map(empresa => (
+                    empresa.avaliacao.map(avaliacao => (
+                        <div className=" col-4 padding " id="blocos">
+
+        <div className="card card-body color ">
+                            <h3>{empresa.nome_empresa}</h3>
+                            
+                            <p>Cargo: {avaliacao.cargo}</p>
+                            <p>Valor do salário: {avaliacao.salario}</p>
+                            <p>Total de análises: {empresa.avaliacao.length} </p>
+                            <p>Ambiente de trabalho:{avaliacao.ambiente_trabalho}</p>
+                            <a className="btn bg-light text-dark"  href={`/empresa/${empresa.id}`}>Acessar empresa</a>
+                        </div>
+                </div>
+
+                    ))
+                ))}
             
             </div>
         </div>
