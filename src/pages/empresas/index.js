@@ -35,7 +35,7 @@ export default function Empresas(){
                 </div>
             </header>
 
-                <h2>Algumas avaliações</h2>
+                <h2>Empresas</h2>
                 <div className="row ">
                     <div className=" col-4 padding " id="blocos">
 
@@ -67,7 +67,7 @@ export default function Empresas(){
                             <h3>Focus</h3>
                             
                             <p>Cargo: Analista de Redes</p>
-                            
+
                             <p>Valor do salário: R$4000,00</p>
                             <p>Total de análises: 8 </p>
                             <p>Ambiente de trabalho:5</p>
