@@ -3,7 +3,6 @@ import React, {useState} from 'react'
 import './style.css'
 import { useHistory } from "react-router-dom"
 import EmpresaService from "../../services/empresa"
-import api from '../../services/api'
 
 export default function Empresas(){
     const history = useHistory()
@@ -25,7 +24,7 @@ export default function Empresas(){
 
                 <select onChange={(event) => {
                     
-                    history.push(`empresa/:${event.target.value}`)
+                    history.push(`empresa/${event.target.value}`)
                 }} className="form-control form-control-lg" name="opcoes" id="filtro">
                     <option>Selecione a empresa</option>
                     {empresas.map(empresa => (

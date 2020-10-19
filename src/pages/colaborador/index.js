@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react'
 import { useHistory } from 'react-router-dom'
 
 import EmpresaService from "../../services/empresa"
+import AvaliacaoService from '../../services/avaliacao'
 
 import './style.css'
 
@@ -26,7 +27,7 @@ export default function Colaborador() {
         data.append('salario', salario)
         data.append('ambiente_trabalho', ambiente_trabalho)
 
-        await EmpresaService.postEmpresa( data).then(() => console.log('POST FUNCIONOU'))
+        await AvaliacaoService.postAvaliacao( data).then(() => console.log('POST FUNCIONOU'))
 
         alert("Cadastro realizado com sucesso")
 
