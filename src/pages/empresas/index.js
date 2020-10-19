@@ -34,7 +34,7 @@ export default function Empresas(){
                 </div>
             </header>
 
-                <h2>Algumas avaliações</h2>
+                <h2>Empresas</h2>
                 <div className="row ">
                 
                 {empresas.map(empresa => (
