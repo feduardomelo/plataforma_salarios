@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import "./style.css"
-import { useHistory } from "react-router-dom"
 import EmpresaService from '../../services/empresa'
 
 class EmpresaId extends Component {
@@ -17,13 +16,14 @@ class EmpresaId extends Component {
 
     render(){
         const { empresa } = this.state
-       const avaliacao = empresa.avaliacao || []
+        const avaliacao = empresa.avaliacao || []
+        
 
     return(
 
     <>
 
-        <h1 className="pad-h1"> Nome da empresa</h1>
+        <h1 className="pad-h1"> {empresa.nome_empresa}</h1>
         <div className="container">
     <table className=" table table-striped tam-table">
     <thead >
@@ -35,17 +35,17 @@ class EmpresaId extends Component {
         </tr>
     </thead>
     <tbody >
-    {avaliacao.map((av) => {
-        return(
-        <tr >
-        <td>{av.cargo}</td>
-        <td>{av.salario}</td>
-        <td>{av.ambiente_trabalho}</td>
-        </tr>)})}
-        </tbody>
+        {avaliacao.map((av) => {
+            return(
+            <tr >
+            <td>{av.cargo}</td>
+            <td>R$ {av.salario},00</td>
+            <td>{av.ambiente_trabalho}</td>
+            </tr>)})}
+    </tbody>
     </table>
     </div>
-    <button className="btn especial"  >Voltar </button>
+    <a href="/empresas" className="btn especial"   >Voltar </a>
     </>
 )}
 }
