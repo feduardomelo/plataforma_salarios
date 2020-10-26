@@ -14,7 +14,7 @@ const Main = () => {
         </div>
 
         <div >
-            <img className="image" src={require("../../components/img/image_index.png")}alt="Pessoa pesquisando dados sobre vagas de emprego."/>
+            <img className="image" src={require("../../components/img/novalogo.jpg")}alt="Pessoa pesquisando dados sobre vagas de emprego."/>
         </div>
 
     </div>
