@@ -13,6 +13,7 @@ class EmpresaService {
   static getEmpresaById(id) {
     return api.get(`/empresa/${id}`)
   }
+  
 
 }
 export default EmpresaService

@@ -1,109 +1,145 @@
-// import EmpresaService from '../../services/empresa'
-// import React, {Component} from 'react'
+// CÓDIGO DUDU
 
+
+// import React, { useState, useEffect} from 'react'
 // import './style.css'
-
-// export default function Colaborador() {
-//     const history = useHistory()
-
-//     const [empresas, setEmpresas] = useState([])
-
-//     const [empresa_id, setEmpresa_id] = useState()
-//     const [cargo, setCargo] = useState('')
-//     const [salario, setSalario] = useState()
-//     const [ambiente_trabalho, setAmbiente_trabalho] = useState()
-
-//     async function handleSubmit(event) {
-//         event.preventDefault()
-
-//         const data = new FormData()
+// import { useHistory } from "react-router-dom"
+// import EmpresaService from "../../services/empresa"
 
 
-//         data.append('empresa_id', empresa_id)
-//         data.append('cargo', cargo)
-//         data.append('salario', salario)
-//         data.append('ambiente_trabalho', ambiente_trabalho)
+// export default function Empresas() {
+//   const history = useHistory()
 
-//         await api.post('/avaliacao', data).then(() => console.log('POST FUNCIONOU'))
+//   const [empresas, setEmpresas] = useState([])
 
-//         alert("Cadastro realizado com sucesso")
+//   EmpresaService.getEmpresa().then(response => {
+//     setEmpresas(response.data)
+//     // setAvaliacao(response.data[0].avaliacao[0])
+//   })
 
-//         history.push('/empresas')
-
-//     async componentDidMount() {
-//         const response =await EmpresaService.getEmpresa()
-//         this.setState( { empresa: response.data})
-//         console.log(response.data)
-//     }
-
-//     render() {
-//         const {empresa} = this.state
-
-//         return(
-//             <div>
-//                 <h1>Listando</h1>
-//                 {empresa.map(empresas => (
-//                     <p>{empresas.nome_empresa}</p>
-//                 ))}
+  
+  
+//   return(
+//     <div>
+//     <title>Empresas</title>
+//         <header className="container">
+//             <div className="col">
+//             <label ><h3>Qual empresa você procura? </h3></label>
 //             </div>
-//         )
+//             <div className="col">
+
+//             <select onChange={(event) => {
+                    
+//                     history.push(`empresa/${event.target.value}`)
+//                 }} className="form-control form-control-lg" name="opcoes" id="filtro">
+//                 <option>Selecione a empresa</option>
+//                 {empresas.map(empresa => (
+//                     <option value={empresa.id} >{empresa.nome_empresa}</option>
+                    
+//                 ))}
+//             </select>
+//             </div>
+//         </header>
+
+//             <h2>Empresas</h2>
+//             <div className="row ">
+            
+//             {empresas.map((empresa) => {
+//               // handleAv(empresa)
+//               return(
+                
+//                 <div className=" col-4 padding " id="blocos">
+//                     <div className="card card-body color ">
+//                         <h3 >{empresa.nome_empresa}</h3>
+                        
+//                         {/* <p>Cargo: {avaliacao.cargo}</p>
+//                         <p>Valor do salário: {avaliacao.salario}</p> */}
+//                         <p>Total de análises: {empresa.avaliacao.length} </p>
+//                         {/* <p>Ambiente de trabalho:{avaliacao.ambiente_trabalho}</p> */}
+//                         <a className="btn bg-light text-dark"  href={`/empresa/${empresa.id}`}>Acessar empresa</a>
+//                     </div>
+//                 </div>
+//                 )}
+//             )}
+
+//         </div>
+//     </div>
+//     )
+// }
+
+
+
+//CÓDIGO ESTELA
+
+// import React, {Component} from 'react'
+// import './style.css'
+// import { useHistory } from "react-router-dom"
+// import EmpresaService from "../../services/empresa"
+
+// class Empresas extends Component{
+//     state = {
+//         empresas: [],
 //     }
+
+//     async componentDidMount(){
+//         const empresasTotal = await EmpresaService.getEmpresa()
+        
+//         this.setState({ 
+//             empresas: empresasTotal.data,
+            
+//         })
+//     }
+
+//     render(){
+//         const { empresas } = this.state
+//         console.log(empresas )
+//         const id = 1
+//         const avaliacao = empresas[id] || []
+//         console.log(avaliacao)
+
 
 //     return(
-//             <div className="content container">
-//                 <title>Colaborador</title>
-//                 <form onSubmit={handleSubmit}>
-//                     <label>Nome da empresa</label>
-//                     <select onChange={event => handleChange(event)} className="form-control form-control-lg" name="name_empresa" id="name_empresa">
+//         <div>
+//         <title>Empresas</title>
+//             <header className="container">
+//                 <div className="col">
+//                 <label ><h3>Qual empresa você procura? </h3></label>
+//                 </div>
+//                 <div className="col">
+
+//                 <select  className="form-control form-control-lg" name="opcoes" id="filtro">
+//                     <option>Selecione a empresa</option>
+//                     {empresas.map(empresa => (
+//                         <option value={empresa.id} >{empresa.nome_empresa}</option>
                         
-//                         {empresas.map(empresa => (
-                                    
-//                                     <option 
-//                                         value={empresa.id}  
-//                                     >
-//                                         {empresa.nome_empresa}</option>
-//                         ))}
-//                     </select>
+//                     ))}
+//                 </select>
+//                 </div>
+//             </header>
+
+//                 <h2>Empresas</h2>
+//                 <div className="row ">
                 
-//                     <label>Cargo</label>
-//                     <input onChange={event => setCargo(event.target.value)} className="form-control form-control-lg"name="cargo" id="name_empresa">
-                        
-//                     </input>
-        
-//                     <span>Salário</span>
-//                     <div className="input-group mb-3">
-//                         <div className="input-group mb-3">
-//                             <div className="input-group-prepend">
-//                                 <span className="input-group-text">R$</span>
-//                             </div>
-//                             <input onChange={event => setSalario(event.target.value)} name="salario" type="number" className="form-control" aria-label="Amount (to the nearest dollar)"/>
-//                             <div className="input-group-append">
-//                                 <span className="input-group-text">.00</span>
-//                             </div>
+//                 {empresas.map(empresa => (
+                    
+//                     <div className=" col-4 padding " id="blocos">
+//                         <div className="card card-body color ">
+//                             <h3>{empresa.nome_empresa}</h3>
+                            
+//                             <p>Cargo: {avaliacao.cargo}</p>
+//                             <p>Valor do salário: {avaliacao.salario}</p>
+//                             <p>Total de análises: {empresa.avaliacao.length} </p>
+//                             <p>Ambiente de trabalho:{avaliacao.ambiente_trabalho}</p>
+//                             <a className="btn bg-light text-dark"  href={`/empresa/${empresa.id}`}>Acessar empresa</a>
 //                         </div>
 //                     </div>
-        
-//                     <div>
-//                         <label>De 1 a 5, qual nota você dá para o ambiente de trabalho nessa empresa?</label>
-//                         <div className="input-group">
-//                             <div className="input-group-prepend">
-//                                 <div className="input-group-text">
-//                                     <input onChange={event => setAmbiente_trabalho(event.target.value)}value="1" type="radio" aria-label="1" name="ambiente_trabalho"/>
-//                                     <label for="1">1</label>
-//                                     <input onChange={event => setAmbiente_trabalho(event.target.value)}value="2" type="radio" aria-label="2" name="ambiente_trabalho"/>
-//                                     <label for="2">2</label>
-//                                     <input onChange={event => setAmbiente_trabalho(event.target.value)}value="3" type="radio" aria-label="3" name="ambiente_trabalho"/>
-//                                     <label for="3">3</label>
-//                                     <input onChange={event => setAmbiente_trabalho(event.target.value)}value="4" type="radio" aria-label="4" name="ambiente_trabalho"/>
-//                                     <label for="4">4</label>
-//                                     <input onChange={event => setAmbiente_trabalho(event.target.value)}value="5"type="radio" aria-label="5" name="ambiente_trabalho"/>
-//                                     <label for="5">5</label>
-//                                 </div>
-//                             </div>
-//                         </div>
-//                     </div>
-//                     <button className="btn" type="submit">Submeter</button>
-//                 </form>
+//                     )
+//                 )}
+  
 //             </div>
-//             )
-// }
+//         </div>
+//         )}}
+// export default Empresas
+
+
+
