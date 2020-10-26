@@ -13,6 +13,8 @@ class Empresas extends Component{
         const empresasTotal = await EmpresaService.getEmpresa()
         this.setState({ empresas: empresasTotal.data})
     }
+    change(event){
+        document.location = '/empresa/' + event.target.value    }
 
     render(){
         const { empresas } = this.state
@@ -27,6 +29,7 @@ class Empresas extends Component{
             empresaById[empresa.id] = empresa
             
         });
+        
 
 
 
@@ -39,8 +42,8 @@ class Empresas extends Component{
                 </div>
                 <div className="col">
 
-                <select onChange='' className="form-control form-control-lg" name="opcoes" id="filtro">
-                    <option>Selecione a empresa</option>
+                <select onChange={this.change} className="form-control form-control-lg" name="opcoes" id="filtro">
+                    <option >Selecione a empresa</option>
                     {empresas.map(empresa => (
                         <option value={empresa.id} >{empresa.nome_empresa}</option>
                     ))}
