@@ -13,12 +13,14 @@
 
 .container .text h1 {
     color: rgb(87, 85, 85);
-    font-size: 22px;
+    font-size: 30px;
 }
 
 .container .text p {
     color: gray;
     line-height: 30px;
+    width: 300px;
+    font-size: 22px;
 }
 
 .image {
