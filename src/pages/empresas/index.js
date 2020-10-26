@@ -42,7 +42,7 @@ class Empresas extends Component{
                 </div>
             </header>
 
-                <h2>Algumas avaliações</h2>
+                <h2>Empresas</h2>
                 <div className="row ">
                 
                 {empresas.map(empresa => (
@@ -62,7 +62,7 @@ class Empresas extends Component{
 
                     )
                 )}
-            
+  
             </div>
         </div>
         )}}
